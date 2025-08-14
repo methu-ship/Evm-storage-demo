@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Contract Storage Visualization</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🗄️ Smart Contract Storage</h1>
+        <p class="subtitle">Interactive visualization of warm/cold storage slots</p>
+        
+        <div class="controls">
+            <div class="input-group">
+                <label for="keyInput">Storage Key</label>
+                <input type="number" id="keyInput" placeholder="Enter key" value="1">
+            </div>
+            <div class="input-group">
+                <label for="valueInput">Value (for store)</label>
+                <input type="number" id="valueInput" placeholder="Enter value" value="420">
+            </div>
+            <button class="store-btn" onclick="storeValue()">Store</button>
+            <button class="load-btn" onclick="loadValue()">Load</button>
+            <button class="clear-btn" onclick="clearStorage()">Clear All</button>
+        </div>
+        
+        <div class="visualization">
+            <div class="storage-section">
+                <div class="section-title">Storage Slots</div>
+                <div class="storage-slots" id="storageSlots">
+                    <div style="text-align: center; color: #7f8c8d; padding: 20px;">
+                        No data stored yet. Try storing a value!
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cache-section">
+                <div class="section-title">Warm Cache</div>
+                <div class="cache-items" id="cacheItems">
+                    <div style="text-align: center; color: #7f8c8d; padding: 20px; width: 100%;">
+                        Cache is empty. Load some values to warm them up!
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="result" id="result">
+            Ready to interact with storage...
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <strong>How it works:</strong><br>
+            • <strong>Cold access:</strong> First time accessing costs more gas<br>
+            • <strong>Warm access:</strong> Subsequent accesses cost less gas<br>
+            • <strong>Cache:</strong> Tracks which slots have been accessed
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
